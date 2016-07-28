@@ -1,0 +1,27 @@
+{
+  "name": "40a",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.4",
+    "gulp-concat": "^2.6.0",
+    "gulp-group-css-media-queries": "^1.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7"
+  },
+  "description": "Site for 40a studio",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/br4in3x/40a.git"
+  },
+  "author": "br4in3x",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/br4in3x/crowngeneration#readme"
+}
