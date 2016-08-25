@@ -1,0 +1,26 @@
+@function em($pixels, $context: $font-size-base) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1em;
+}
+
+// Color
+$blue: #4ecbdf;
+$white: #ffffff;
+$black: #000000;
+$font-family-base: 'AvenirNext', Arial, sans;
+$grey: darken($white, 20%);
+
+body {
+    font-family: $font-family-base;
+    overflow-x: hidden;
+}
+
+::selection {
+  background: #4ecbdf; /* WebKit/Blink Browsers */
+  color: $white;
+}
