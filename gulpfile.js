@@ -43,8 +43,10 @@ gulp.task('scripts', function () {
     return gulp.src(sources.scripts)
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.concat('main.js'))
-        .pipe(plugins.if(!development, plugins.uglify()))
-        .on('error', handleError)        
+        .pipe(plugins.if(
+            !development, plugins.uglify()
+            .on('error', handleError))
+        )    
         .pipe(plugins.sourcemaps.write('./'))
         .pipe(gulp.dest('build/js'))
         .pipe(reload({stream: true}));
