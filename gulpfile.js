@@ -70,11 +70,19 @@ gulp.task('images', () => {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('html', () => {
+    gulp.src(paths.input.html)
+        .pipe(plumber())
+        .pipe(reload({stream: true}));
+});
+
 gulp.task('build', ['sass', 'js', 'images']);
-gulp.task('default', ['watch', 'webserver']);
+gulp.task('server', ['watch', 'webserver']);
+gulp.task('default', ['watch']);
 
 gulp.task('watch', ['build'], () => {
     gulp.watch(paths.watch.css, ['sass']);
     gulp.watch(paths.input.js, ['js']);
     gulp.watch(paths.input.images, ['images']);
+    gulp.watch(paths.input.html, ['html'])
 });
