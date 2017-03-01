@@ -15,8 +15,9 @@ var gulp        = require('gulp'),
 var paths = {
     input: {
         css: 'source/sass/main.scss',
-        js: ['source/js/**/*', 'source/sass/**/*.js'],
+        js: ['source/js/**/*', 'source/sass/blocks/**/*.js'],
         images: 'source/images/**/*',
+        html: '*.html'
     },
     watch: {
         css: 'source/sass/**/*'
@@ -31,7 +32,6 @@ var paths = {
 gulp.task('webserver', () => {
     browserSync({
         server: { baseDir: "./" },
-        tunnel: true,
         host: 'localhost',
         port: 8000,
         logPrefix: "br4in3x"
