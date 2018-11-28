@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint 'source/sass/blocks/cg/**/*.scss'"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,10 @@
     "gulp-sass": "^2.3.2",
     "gulp-sass-glob": "^1.0.6",
     "gulp-sourcemaps": "^2.2.0",
-    "gulp-uglifyjs": "^0.6.2"
+    "gulp-uglifyjs": "^0.6.2",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-sass-guidelines": "^5.2.0",
+    "stylelint-scss": "^3.4.0"
   }
 }
