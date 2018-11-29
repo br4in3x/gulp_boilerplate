@@ -10,6 +10,7 @@ var gulp        = require('gulp'),
     globbing    = require('gulp-sass-glob'),
     browserSync = require('browser-sync'),
     sm          = require('gulp-sourcemaps'),
+    acss        = require('gulp-atomizer');
     reload      = browserSync.reload;
 
 var paths = {
@@ -41,11 +42,11 @@ gulp.task('webserver', () => {
 gulp.task('sass', () => {
     gulp.src(paths.input.css)
         .pipe(plumber())
-        .pipe(sm.init())      
+        .pipe(sm.init())
         .pipe(globbing())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefix())
-        .pipe(sm.write('.'))              
+        .pipe(sm.write('.'))
         .pipe(gulp.dest(paths.output.css))
         .pipe(reload({stream: true}));
 });
@@ -56,7 +57,7 @@ gulp.task('js', () => {
         .pipe(sm.init())
         .pipe(concat('main.js'))
         .pipe(uglify())
-        .pipe(sm.write('.'))        
+        .pipe(sm.write('.'))
         .pipe(gulp.dest(paths.output.js))
         .pipe(reload({stream: true}));
 });
@@ -73,6 +74,11 @@ gulp.task('images', () => {
 gulp.task('html', () => {
     gulp.src(paths.input.html)
         .pipe(plumber())
+        .pipe(acss())
+        .pipe(gulp.dest(paths.output.css))
+        .pipe(reload({stream: true}));
+
+    gulp.src(paths.output.css + '/atomic.css')
         .pipe(reload({stream: true}));
 });
 
