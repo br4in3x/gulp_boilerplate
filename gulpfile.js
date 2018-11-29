@@ -74,7 +74,9 @@ gulp.task('images', () => {
 gulp.task('html', () => {
     gulp.src(paths.input.html)
         .pipe(plumber())
-        .pipe(acss())
+        .pipe(acss({
+            acssConfig: require('./.atomicrc.js'),
+        }))
         .pipe(gulp.dest(paths.output.css))
         .pipe(reload({stream: true}));
 
