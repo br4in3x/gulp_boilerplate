@@ -12,7 +12,11 @@ var gulp = require('gulp'),
     sm = require('gulp-sourcemaps'),
     acss = require('gulp-atomizer'),
     reload = browserSync.reload,
-    nunjucksRender = require('gulp-nunjucks-render');
+    nunjucksRender = require('gulp-nunjucks-render'),
+    short = require('short-uuid'),
+    clean = require('gulp-clean');
+
+var version = short().generate()
 
 var paths = {
     input: {
@@ -51,6 +55,7 @@ gulp.task('sass', () => {
             outputStyle: 'compressed'
         }))
         .pipe(autoprefix())
+        .pipe(rename({suffix: `.${version}`}))
         .pipe(sm.write('.'))
         .pipe(gulp.dest(paths.output.css))
         .pipe(reload({
@@ -64,6 +69,7 @@ gulp.task('js', () => {
         .pipe(sm.init())
         .pipe(concat('main.js'))
         .pipe(uglify())
+        .pipe(rename({suffix: `.${version}`}))
         .pipe(sm.write('.'))
         .pipe(gulp.dest(paths.output.js))
         .pipe(reload({
@@ -85,10 +91,13 @@ gulp.task('images', () => {
 });
 
 gulp.task('html', () => {
-    gulp.src('source/nj/index.nj')
+    gulp.src('source/nj/**/*.nj')
         .pipe(plumber())
         .pipe(nunjucksRender({
-            path: ['source/nj']
+            path: ['source/nj'],
+            data: {
+                version,
+            }
         }))
         .pipe(gulp.dest('./'))
 });
@@ -99,6 +108,11 @@ gulp.task('atomic', () => {
             acssConfig: require('./.atomicrc.js'),
         }))
         .pipe(gulp.dest(paths.output.css))
+})
+
+gulp.task('clean', () => {
+    gulp.src('./build', { read: false })
+        .pipe(clean())
 })
 
 gulp.task('build', ['sass', 'js', 'images', 'html']);

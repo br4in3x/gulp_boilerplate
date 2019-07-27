@@ -1,28 +1,2 @@
-// Core variables and mixins
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "blocks/common/g-bem/g-bem";
-
-// Reset and dependencies
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/print";
-
-// Core CSS
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/code";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tables";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
-
-// Utility classes
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
-
-// Components w/ JavaScript
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
-
-// @import 'blocks/[project]/**/*';
 @import 'basic'
+// @import 'blocks/[project]/**/*';

@@ -8,19 +8,13 @@
     @return $pixels / $context * 1em;
 }
 
-// Color
-$blue: #4ecbdf;
-$white: #ffffff;
-$black: #000000;
-$font-family-base: 'AvenirNext', Arial, sans;
-$grey: darken($white, 20%);
+$font-family-base: Arial, sans;
 
 body {
     font-family: $font-family-base;
-    overflow-x: hidden;
 }
 
 ::selection {
-  background: #4ecbdf; /* WebKit/Blink Browsers */
-  color: $white;
+  background: orange; /* WebKit/Blink Browsers */
+  color: #fff;
 }
